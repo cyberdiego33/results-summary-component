@@ -1,0 +1,202 @@
+:root {
+
+    /* Colors */
+    --Light-red: hsl(0, 100%, 67%);
+    --Orangey-yellow: hsl(39, 100%, 56%);
+    --Green-teal: hsl(166, 100%, 37%);
+    --Cobalt-blue: hsl(234, 85%, 45%);
+
+    --shadow-blue: hsla(241, 76%, 67%, 10%);
+
+    /* color hsla */
+    --content-light-red:hsla(0, 100%, 67%, 6%); 
+    --content-orangey-yellow: hsla(39, 100%, 56%, 6%);
+    --content-green-teal: hsla(166, 100%, 37%, 6%);
+    --content-cobalt-blue: hsla(234, 85%, 45%, 6%);
+
+    /* Gradients */
+    --Light-slate-blue-background: hsl(252, 100%, 67%);
+    --Light-royal-blue-background: hsl(241, 81%, 54%);
+
+    --Violet-blue-circle: hsla(256, 72%, 46%, 1);
+    --Persian-blue-circle: hsla(241, 72%, 46%, 0);
+
+    /* Neutral */
+    --White: hsl(0, 0%, 100%);
+    --Pale-blue: hsl(221, 100%, 96%);
+    --Light-lavender: hsl(241, 100%, 89%);
+    --Dark-gray-blue: hsl(224, 30%, 27%);
+    --Dark-gray-text: hsl(224, 28%, 35%);
+}
+
+/* ### Notes
+
+Use transparency to get the color variations
+necessary to match the design.
+Hint: look into using `hsla()`. */
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--Pale-blue);
+    font-family: 'Hanken Grotesk', sans-serif;
+}
+.container {
+    background-color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 20px;
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.1), 
+            -10px -10px 30px rgba(255, 255, 255, 0.5);
+
+}
+
+.result-div,
+.summary-div {
+    width: 300px;
+}
+
+.result-div {
+    text-align: center;
+    padding: 1.6rem 2rem;
+    border-radius: 20px;
+    background: 
+        linear-gradient(var(--Light-slate-blue-background), var(--Light-royal-blue-background));
+}
+.score-circle {
+    background: 
+        linear-gradient( to top,
+            var(--Persian-blue-circle), var(--Violet-blue-circle)
+        );
+    width: 140px;
+    height: 140px;
+    padding: 2rem;
+    margin: 1.3rem auto;
+    border-radius: 5000px;
+}
+h2 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+.great {
+    margin-bottom: 1rem;
+    font-size: 18px;
+    font-weight: 500;
+}
+.w-text-color {
+    color: var(--Light-lavender);
+}
+.gray-color {
+    color: var(--Dark-gray-text);
+}
+.white-text {
+    color: var(--White);
+}
+
+.summary-div {
+    padding: 1.6rem;
+}
+.summary-content {
+    display: grid;
+    row-gap: .7rem;
+}
+.content {
+    padding: .7rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+}
+.summary {
+    margin-bottom: 1rem;
+}
+.name {
+    display: flex;
+}
+.name p {
+    margin-left: 5px;
+}
+
+.reaction .text {
+    color: var(--Light-red);
+}
+.reaction {
+    background-color: var(--content-light-red);
+}
+
+.memory .text {
+    color: var(--Orangey-yellow);
+}
+.memory {
+    background-color: var(--content-orangey-yellow);
+}
+
+.verbal .text {
+    color: var(--Green-teal);
+}
+.verbal {
+    background-color: var(--content-green-teal);
+}
+
+.visual .text {
+    color: var(--Cobalt-blue);
+}
+.visual {
+    background-color: var(--content-cobalt-blue);
+}
+
+button {
+    width: 100%;
+    border-radius: 20px;
+    border: none;
+    background-color: var(--Dark-gray-blue);
+    color: #fff;
+    margin-top: 1.5rem;
+    padding: .8rem;
+    font-weight: 700;
+    font-size: 16px;
+    position: relative;
+}
+button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background: 
+        linear-gradient(var(--Light-slate-blue-background), var(--Light-royal-blue-background));
+    transition: opacity 1s ease-in;
+    opacity: 0;
+}
+button span {
+    position: relative;
+}
+button:hover::before,
+button:active::before {
+    opacity: 1;
+}
+
+
+@media (max-width: 620px) {
+    .container {
+        max-width: 340px;
+    }
+    .result-div,
+    .summary-div {
+        width: 340px;
+    }
+    .result-div {
+        box-shadow: 0px 20px 10px var(--shadow-blue);
+    }
+}
